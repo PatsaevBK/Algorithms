@@ -80,3 +80,20 @@ fun recBinarySearch(list: List<Int>, number: Int): Int {
         }
     }
 }
+
+//последнее красивое решение
+fun easyBinarySearch(numbers: List<Int>, searchNumber: Int): Int {
+    var start = 0
+    var mid = numbers.size / 2
+    var end = numbers.lastIndex
+    while (start <= end) {
+        if (numbers[mid] == searchNumber) return mid
+        if (numbers[mid] > searchNumber) {
+            end = mid - 1
+        } else {
+            start = mid + 1
+        }
+        mid = (start + end) / 2
+    }
+    return -1
+}
