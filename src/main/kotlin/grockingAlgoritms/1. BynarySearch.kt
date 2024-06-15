@@ -3,7 +3,7 @@ package grockingAlgoritms
 fun main() {
     val list = List(12) { it }
     println(list)
-    println(recBinarySearch(list, 8))
+    println(recBinarySearchIndex(list, 0))
 //    list.forEach {
 //        println(it)
 //        println(binarySearch(list, it))
@@ -14,9 +14,7 @@ fun main() {
 //    }
 //    binarySearch(list, 9)
     println(standardBinarySearch(list, list.first()))
-    println(recBinarySearch(list, list.first()))
     println(standardBinarySearch(list, list.last()))
-    println(recBinarySearch(list, list.last()))
 }
 
 fun myBinarySearch(list: List<Int>, number: Int): Int {
@@ -65,20 +63,46 @@ fun standardBinarySearch(list: List<Int>, number: Int): Int {
     return -1
 }
 
-fun recBinarySearch(list: List<Int>, number: Int): Int {
-    return if (list.isEmpty()) {
-        -1
-    } else if (list.size == 1) {
-        list[0]
-    } else {
-        val mid = list.size / 2
-        when {
-            list[mid] == number -> recBinarySearch(list.subList(mid, mid + 1), number)
-            list[mid] > number -> recBinarySearch(list.subList(0, mid), number)
-            list[mid] < number -> recBinarySearch(list.subList(mid + 1, list.size), number)
-            else -> throw IllegalStateException("Imposable")
+//ошибка, возвращает то число из массива а должен индекс
+//fun recBinarySearchSublist(list: List<Int>, number: Int): Int {
+//    return if (list.isEmpty()) {
+//        -1
+//    } else if (list.size == 1) {
+//        list[0]
+//    } else {
+//        val mid = list.size / 2
+//        when {
+//            list[mid] == number -> recBinarySearchSublist(list.subList(mid, mid + 1), number)
+//            list[mid] > number -> recBinarySearchSublist(list.subList(0, mid), number)
+//            list[mid] < number -> recBinarySearchSublist(list.subList(mid + 1, list.size), number)
+//            else -> throw IllegalStateException("Imposable")
+//        }
+//    }
+//}
+
+fun recBinarySearchIndex(list: List<Int>, number: Int): Int {
+    fun recBinarySearchIndex(list: List<Int>, number: Int, start: Int, end: Int): Int {
+        if (start > end) {
+            return -1
         }
+
+        val mid = (start + end) / 2
+        when {
+            list[mid] == number -> {
+                return mid
+            }
+            list[mid] < number -> {
+                val newStart = mid + 1
+                return recBinarySearchIndex(list = list, number = number, start = newStart, end = end)
+            }
+            list[mid] > number -> {
+                val newEnd = mid - 1
+                return recBinarySearchIndex(list = list, number = number, start = start, end = newEnd)
+            }
+        }
+        throw IllegalStateException("Imposable")
     }
+    return recBinarySearchIndex(list = list, number = number, start = 0, end = list.lastIndex)
 }
 
 //последнее красивое решение

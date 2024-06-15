@@ -1,6 +1,0 @@
-package leetcode
-
-fun main() {
-}
-
-
