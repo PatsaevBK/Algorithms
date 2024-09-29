@@ -5,5 +5,5 @@ pluginManagement {
     }
     
 }
-rootProject.name = "Algoritms"
+rootProject.name = "Algorithms"
 

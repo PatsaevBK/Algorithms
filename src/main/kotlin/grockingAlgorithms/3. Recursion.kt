@@ -1,4 +1,4 @@
-package grockingAlgoritms
+package grockingAlgorithms
 
 fun main() {
     val a = recFactorial(5)

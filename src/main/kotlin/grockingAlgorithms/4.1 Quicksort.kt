@@ -1,4 +1,4 @@
-package grockingAlgoritms
+package grockingAlgorithms
 
 fun main() {
     println(recSum(listOf(1,11,121)))

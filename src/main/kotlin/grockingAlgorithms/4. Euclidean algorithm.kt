@@ -1,4 +1,4 @@
-package grockingAlgoritms
+package grockingAlgorithms
 
 fun main() {
     val res = tailRecNodEvc(170, 2800)

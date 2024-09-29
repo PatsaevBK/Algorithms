@@ -1,4 +1,4 @@
-package grockingAlgoritms
+package grockingAlgorithms
 
 import kotlin.random.Random
 

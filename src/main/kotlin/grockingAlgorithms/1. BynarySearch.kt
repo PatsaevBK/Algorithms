@@ -1,4 +1,4 @@
-package grockingAlgoritms
+package grockingAlgorithms
 
 fun main() {
     val list = List(12) { it }
