@@ -1,28 +1,36 @@
 package algorithmsForDevelopers
 
+import kotlinx.coroutines.flow.merge
+import kotlin.random.Random
+
 fun main() {
-    println(List(10) { it }.isSorted { o1, o2 -> o1.compareTo(o2) })
-    println()
+//    println(List(10) { it }.isSorted { o1, o2 -> o1.compareTo(o2) })
+//    println()
+//
+//    println("bubble sort ----------")
+//    println(bubbleSort(listOf(5, 4, 1, 2, 6)))
+//    println(bubbleSort(listOf(1, 2, 6, 4, 5)))
+//    println(bubbleSort(List(10) { it }))
+//
+//    println("chooseSort sort ------")
+//    println(chooseSort(listOf(5, 4, 1, 2, 6)))
+//    println(chooseSort(listOf(1, 2, 6, 4, 5)))
+//    println(chooseSort(List(10) { it }))
+//
+//    println("insertSort sort ------")
+//    println(insertSort(listOf(5, 4, 1, 2, 6)))
+//    println(insertSort(listOf(1, 2, 6, 4, 5)))
+//    println(insertSort(List(10) { it }))
+//
+//    println("sortingByCountingInt sort ------")
+//    println(sortingByCountingInt(listOf(5, 4, 1, 2, 6)))
+//    println(sortingByCountingInt(listOf(1, 2, 6, 4, 5)))
+//    println(sortingByCountingInt(List(10) { it }))
 
-    println("bubble sort ----------")
-    println(bubbleSort(listOf(5, 4, 1, 2, 6)))
-    println(bubbleSort(listOf(1, 2, 6, 4, 5)))
-    println(bubbleSort(List(10) { it }))
-
-    println("chooseSort sort ------")
-    println(chooseSort(listOf(5, 4, 1, 2, 6)))
-    println(chooseSort(listOf(1, 2, 6, 4, 5)))
-    println(chooseSort(List(10) { it }))
-
-    println("insertSort sort ------")
-    println(insertSort(listOf(5, 4, 1, 2, 6)))
-    println(insertSort(listOf(1, 2, 6, 4, 5)))
-    println(insertSort(List(10) { it }))
-
-    println("sortingByCountingInt sort ------")
-    println(sortingByCountingInt(listOf(5, 4, 1, 2, 6)))
-    println(sortingByCountingInt(listOf(1, 2, 6, 4, 5)))
-    println(sortingByCountingInt(List(10) { it }))
+    println(algorithmsForDevelopers.merge(listOf(1, 3, 4, 4, 5), listOf(1, 2, 6, 7, 8)))
+    val array: IntArray = intArrayOf(3, 2, 3, 1, 6, 7, 8)
+    partition(array, 0, array.size)
+    println(array.toList())
 }
 
 private fun <T> List<T>.isSorted(comparator: Comparator<T>): Boolean {
@@ -184,4 +192,66 @@ private fun sortingByCountingInt(list: List<Int>): List<Int> {
     }
 
     return result.toList()
+}
+
+/** Сортировка слиянием
+ *
+ * Ассимптотическая сложность - O(n*logn)
+ *
+ * Минусы:
+ * - расходует большое количество памяти из-за создания нового списка на каждой итерации
+ * */
+private fun <T : Comparable<T>> merge(list1: List<T>, list2: List<T>): List<T> {
+    var pt1 = 0
+    var pt2 = 0
+    val result = mutableListOf<T>()
+
+    while (pt1 != list1.lastIndex && pt2 != list2.lastIndex) {
+        if (list1[pt1] < list2[pt2]) {
+            result.add(list1[pt1])
+            pt1++
+        } else {
+            result.add(list2[pt2])
+            pt2++
+        }
+    }
+
+    if (pt1 == list1.lastIndex && pt2 != list2.lastIndex) {
+        result.addAll(list2.subList(pt2, list2.size))
+    } else if (pt2 == list2.lastIndex && pt1 != list1.lastIndex) {
+        result.addAll(list1.subList(pt1, list1.size))
+    }
+
+    return result
+}
+
+/** Быстрая сотрировка
+ * Ассимптотическая сложность - O(n*logn)
+ *
+ * Минусы:
+ * -
+ * */
+private fun partition(array: IntArray, l: Int, r: Int): Int {
+    if (r - l < 1) return l
+    var i = l
+    var j = r - 1
+    val x = array[l + Random.nextInt(r - l)]
+    while (i < j) {
+        while (array[i] < x) {
+            i++
+        }
+        while (array[j] > x) {
+            j--
+        }
+        if (i <= j) {
+            val temp = array[i]
+            array[i] = array[j]
+            array[j] = temp
+            i++
+            j--
+        } else {
+            break
+        }
+    }
+    return i
 }
