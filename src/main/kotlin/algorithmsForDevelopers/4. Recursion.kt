@@ -7,7 +7,7 @@ fun main() {
     towerOfHanoi(2, 'A', 'C', 'B')
 }
 
-val result = mutableListOf<String>()
+private val result = mutableListOf<String>()
 
 private fun allPossibleCombinationAZ(length: Int, string: String) {
     if (string.length == length) {
