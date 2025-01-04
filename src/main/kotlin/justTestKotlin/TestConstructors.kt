@@ -1,0 +1,4 @@
+package justTestKotlin
+
+class TestConstructors {
+}
