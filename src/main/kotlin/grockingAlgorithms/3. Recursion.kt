@@ -1,6 +1,6 @@
 package grockingAlgorithms
 
-fun main() {
+private fun main() {
     val a = recFactorial(5)
     assert(a == 120L)
     val b = tailRecFactorial(5)

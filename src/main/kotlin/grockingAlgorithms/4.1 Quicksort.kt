@@ -1,6 +1,6 @@
 package grockingAlgorithms
 
-fun main() {
+private fun main() {
     println(recSum(listOf(1,11,121)))
     println(tailRecSum(listOf(1,11,121)))
 }

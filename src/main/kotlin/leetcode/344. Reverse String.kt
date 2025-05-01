@@ -1,6 +1,6 @@
 package leetcode
 
-fun main() {
+private fun main() {
     println(reverseString("ABCDEFG".toCharArray()))
 }
 

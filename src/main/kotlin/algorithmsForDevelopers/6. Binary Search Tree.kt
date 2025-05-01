@@ -1,6 +1,6 @@
 package algorithmsForDevelopers
 
-fun main() {
+private fun main() {
     val tree = Tree()
     tree.add(1)
     tree.add(0)

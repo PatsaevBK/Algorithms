@@ -2,6 +2,7 @@
 
 package quickStartKt
 
+import kotlinx.datetime.Instant
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.builtins.ListSerializer
 import kotlinx.serialization.encodeToString
@@ -11,11 +12,27 @@ import java.io.File
 
 //https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/basic-serialization.md
 
-fun main() {
+private fun main() {
 //    val pr =Project("JORA")
 //    val json = Json.encodeToJsonElement(pr)
 //    println(json)
-    println(Json.decodeFromString(ListSerializer(StoredPositions.serializer()), "[]"))
+//    println(Json.decodeFromString(ListSerializer(StoredPositions.serializer()), "[]"))
+    val nLUserSettingsUpdate = """
+{
+  "orderSettings": [
+    {
+      "ownerFirmId": 938,
+      "expirationTime": {
+        "count": 75599000
+      }
+    }
+  ]
+}
+""".trimIndent()
+//    val str = Json.encodeToString(nLUserSettingsUpdate)
+//    println(str)
+    val o = Json.decodeFromString<NLUserSettingsUpdate>(nLUserSettingsUpdate)
+    println(o)
 }
 
 @Serializable
@@ -55,3 +72,13 @@ internal data class Project(
     }
 }
 
+@Serializable
+data class NLUserSettingsUpdate(
+    val orderSettings: List<NLOrderSettings>
+)
+
+@Serializable
+data class NLOrderSettings(
+    val ownerFirmId: Long,
+    val expirationTime: Instant?,
+)

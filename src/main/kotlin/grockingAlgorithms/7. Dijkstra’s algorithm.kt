@@ -1,6 +1,6 @@
 package grockingAlgorithms
 
-fun main() {
+private fun main() {
     val start = "Start"
     val finish = "Finish"
     val graph = mapOf(

@@ -1,6 +1,6 @@
 package algorithmsForDevelopers
 
-fun main() {
+private fun main() {
 //    allPossibleCombinationAZ(3, "")
 //    println(result)
 //    println(result.size)

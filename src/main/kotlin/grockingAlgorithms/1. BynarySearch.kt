@@ -1,6 +1,6 @@
 package grockingAlgorithms
 
-fun main() {
+private fun main() {
     val list = List(12) { it }
     println(list)
     println(recBinarySearchIndex(list, 0))

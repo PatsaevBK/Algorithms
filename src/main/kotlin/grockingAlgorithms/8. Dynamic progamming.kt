@@ -2,7 +2,7 @@ package grockingAlgorithms
 
 import kotlin.math.max
 
-fun main() {
+private fun main() {
     var job: Job? = Job(mutableListOf())
     var person: Person? = Person(job!!)
     job?.apply { employees.add(person!!) }

@@ -3,7 +3,7 @@ package algorithmsForDevelopers
 import kotlinx.coroutines.flow.merge
 import kotlin.random.Random
 
-fun main() {
+private fun main() {
 //    println(List(10) { it }.isSorted { o1, o2 -> o1.compareTo(o2) })
 //    println()
 //

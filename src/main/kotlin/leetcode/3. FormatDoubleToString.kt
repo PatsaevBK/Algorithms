@@ -1,7 +1,7 @@
 package leetcode
 
 
-fun main() {
+private fun main() {
     val number = 12345678.11
     println(formatDoubleToString(number))
 }

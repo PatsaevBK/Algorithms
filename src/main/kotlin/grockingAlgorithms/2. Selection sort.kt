@@ -3,7 +3,7 @@ package grockingAlgorithms
 import kotlin.random.Random
 
 var COUNT = 0
-fun main() {
+private fun main() {
     val list1 = List(10) { Random.nextInt(1000) }
     println(selectionSort(list1))
     println(COUNT)

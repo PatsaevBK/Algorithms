@@ -2,7 +2,7 @@ package leetcode
 
 import kotlin.math.abs
 
-fun main() {
+private fun main() {
     val nums = intArrayOf(4, 3, 2, 7, 8, 2, 3, 1)
     assert(listOf(5, 6) == findDisappearedNumbers(nums))
 }

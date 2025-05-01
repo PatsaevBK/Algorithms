@@ -12,7 +12,7 @@ package leetcode
  * https://leetcode.com/problems/add-two-numbers/solutions/3111480/kotlin-solution/
  */
 
-fun main() {
+private fun main() {
     val list1 = intArrayOf(9, 9, 9, 9, 9, 9, 9)
     val list2 = intArrayOf(9, 9, 9, 9)
     val list1n = list1.map {

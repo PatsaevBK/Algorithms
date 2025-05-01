@@ -5,7 +5,7 @@ import juniorIos.Color.*
 import juniorIos.Filling.*
 
 @OptIn(ExperimentalStdlibApi::class)
-fun main() {
+private fun main() {
     val packageMAndM = List(100) {
         MAndM(
             color = Color.entries[it % Color.entries.size],

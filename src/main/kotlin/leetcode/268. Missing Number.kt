@@ -1,6 +1,6 @@
 package leetcode
 
-fun main() {
+private fun main() {
     assert(missingNumber(intArrayOf(3, 0, 1)) == 2)
     assert(missingNumber(intArrayOf(0, 1)) == 2)
     assert(missingNumber(intArrayOf(9, 6, 4, 2, 3, 5, 7, 0, 1)) == 8)

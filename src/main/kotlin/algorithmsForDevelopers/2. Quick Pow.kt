@@ -4,7 +4,7 @@ import kotlin.math.pow
 
 private var steps = 0
 
-fun main() {
+private fun main() {
     val result = quickPow(2.0, 32)
     println(steps)
     println(result == 2.0.pow(32))

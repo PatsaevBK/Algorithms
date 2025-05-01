@@ -2,7 +2,7 @@ package algorithmsForDevelopers
 
 import java.util.PriorityQueue
 
-fun main() {
+private fun main() {
     println(maxNotCrossedStripes(listOf(Pair(1, 5), Pair(1, 2), Pair(3, 4), Pair(2, 3))))
     println("-----")
     println(optimalPyramid(listOf(Pair(10, 11), Pair(20, 100), Pair(30, 10))))

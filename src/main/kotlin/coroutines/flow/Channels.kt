@@ -4,7 +4,7 @@ import kotlinx.coroutines.*
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.receiveAsFlow
 
-fun main(): Unit = runBlocking {
+private fun main(): Unit = runBlocking {
     val channel = Channel<Int>(capacity = Channel.BUFFERED)
     val flow = channel.receiveAsFlow()
 

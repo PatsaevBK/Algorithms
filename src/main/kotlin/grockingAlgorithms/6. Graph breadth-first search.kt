@@ -2,7 +2,7 @@ package grockingAlgorithms
 
 import java.util.LinkedList
 
-fun main() {
+private fun main() {
     val map = mutableMapOf<String, List<String>>()
     map["you"] = listOf("alice", "bob", "claire")
     map["claire"] = listOf("thom", "jonny")

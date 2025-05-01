@@ -5,7 +5,7 @@ package leetcode
 * https://github.com/akhilkammila/leetcode-screenshotter/blob/main/editorial-screenshots/1-999/001.%20Two%20Sum.png
 * */
 
-fun main() {
+private fun main() {
 
 }
 

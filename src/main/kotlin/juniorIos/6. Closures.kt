@@ -2,7 +2,7 @@ package juniorIos
 
 import kotlin.random.Random
 
-fun main() {
+private fun main() {
     val test = List(20) { Random.nextInt(until = 1000) }
     println(customFilter(test) { it % 2 == 0 })
 

@@ -1,6 +1,6 @@
 package algorithmsForDevelopers
 
-fun main() {
+private fun main() {
     println(!isValidBraces("((}}"))
     println(isValidBraces("(())"))
     println(isValidBraces("({})"))
