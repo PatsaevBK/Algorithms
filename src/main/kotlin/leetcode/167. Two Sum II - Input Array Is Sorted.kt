@@ -15,11 +15,9 @@ private fun twoSum(numbers: IntArray, target: Int): IntArray {
             }
             sum < target -> {
                 startPoint++
-                continue
             }
             else -> {
                 endPoint--
-                continue
             }
         }
     }
