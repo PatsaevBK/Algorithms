@@ -28,12 +28,23 @@ private fun main() {
     }
   ]
 }
-""".trimIndent()
-//    val str = Json.encodeToString(nLUserSettingsUpdate)
-//    println(str)
-    val o = Json.decodeFromString<NLUserSettingsUpdate>(nLUserSettingsUpdate)
-    println(o)
+//""".trimIndent()
+////    val str = Json.encodeToString(nLUserSettingsUpdate)
+////    println(str)
+//    val o = Json.decodeFromString<NLUserSettingsUpdate>(nLUserSettingsUpdate)
+//    println(o)
+
+    val money = """
+    {
+        "value": 100.00
+    }
+    """.trimIndent()
+    val a = Json.decodeFromString<Money>(money)
+    println(a)
 }
+
+@Serializable
+data class Money(val value: Int)
 
 @Serializable
 data class StoredPositions(
