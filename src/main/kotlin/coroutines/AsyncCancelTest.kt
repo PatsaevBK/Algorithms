@@ -1,4 +1,4 @@
-package coroutines.flow
+package coroutines
 
 import kotlinx.coroutines.Deferred
 import kotlinx.coroutines.SupervisorJob
