@@ -2,7 +2,6 @@ package justTestKotlin
 
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.*
-import kotlinx.datetime.*
 
 class CustomComparator<T>(private val firstElement: T) : Comparator<T> {
     override fun compare(o1: T, o2: T): Int {
@@ -14,50 +13,37 @@ class CustomComparator<T>(private val firstElement: T) : Comparator<T> {
     }
 }
 
-private fun main(): Unit = runBlocking {
-    val a = launch {
-        return@launch
-    }
-    delay(1000)
-    println(a.isActive)
-
-//    println(0 % 4)
-//    println("A BCD".contains("ab", ignoreCase = true))
-//    println("BC" in "A_BCD")
-//    val instant = Instant.fromEpochSeconds(Clock.System.now().epochSeconds)
-//    val localDateTime = instant.toLocalDateTime(TimeZone.currentSystemDefault())
-//    LocalDateTime.Format {
-//
-//    }
-//    println(instant)
-//    val stateFlow = MutableStateFlow(0)
-//    val resultFlow = MutableSharedFlow<String>()
-//
-//    println(3 / 5)
-//
-//    // consumer
-//    launch(Dispatchers.IO) {
-//        stateFlow.collect {
-//            println("StartProccess $it")
+fun main() = runBlocking {
+//    val job = CoroutineScope(Dispatchers.Default).launch {
+//        launch {  // Дочерняя корутина
 //            delay(1000)
-//            resultFlow.emit(it.toString())
+//            println("Корутина завершена") // ❌ Не выполнится!
 //        }
+//        println("runBlocking завершён") // Выведется сразу
 //    }
+//    delay(500)
+//    println(job.isActive)
+//    println(job.isCompleted)
 //
-//    // emitter
-//    launch(Dispatchers.IO) {
-//        repeat(100) {
-//            delay(500)
-//            stateFlow.emit(it)
-//        }
-//    }
-//
-//    // result
-//    launch {
-//        resultFlow.collect {
-//            println("----- XXX result $it")
-//        }
-//    }
+//    delay(1000)
+//    println(job.isActive)
+//    println(job.isCompleted)
+//    job.join()
+//    println(listOf(1,2,3).joinToString(separator = ","))
+    val a = arrayOf("a", "b", "c", "d", "e")
+    var first = 0
+    var second = a.lastIndex
+
+    while (first < second) {
+        val one = a[first]
+        val two = a[second]
+        a[first] = two
+        a[second] = one
+        first++
+        second--
+    }
+
+    println(a.joinToString())
 }
 
 //    val small = listOf(5, 6, 7, 8)
